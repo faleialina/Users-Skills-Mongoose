@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllSkill, createSkill, getSkillById, updateSkill } = require('../service/skill.service');
+const { getAllSkill, createSkill, getSkillById, updateSkill, deleteSkill } = require('../service/skill.service');
 const route = express.Router();
 
 route.get('/', async (req, res) => {
@@ -32,6 +32,15 @@ route.put('/:_id', async (req, res) => {
     try {
         const data = await updateSkill(req.params._id, req.body);
         res.send(data);
+    } catch (error) {
+        res.send(error.message);
+    };
+});
+
+route.delete('/:_id', async (req, res) => {
+    try {
+        const data = await deleteSkill(_id);
+        res.send(data)
     } catch (error) {
         res.send(error.message);
     };
