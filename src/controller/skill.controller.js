@@ -39,7 +39,7 @@ route.put('/:_id', async (req, res) => {
 
 route.delete('/:_id', async (req, res) => {
     try {
-        const data = await deleteSkill(_id);
+        const data = await deleteSkill(req.params._id);
         res.send(data)
     } catch (error) {
         res.send(error.message);
