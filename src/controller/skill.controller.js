@@ -12,7 +12,7 @@ route.get('/', async (req, res) => {
 });
 route.get('/:_id', async (req, res) => {
     try {
-        const data = await getSkillById(req.params._id, req.body);
+        const data = await getSkillById(req.params._id);
         res.send(data);
     } catch (error) {
         res.send(error.message);
